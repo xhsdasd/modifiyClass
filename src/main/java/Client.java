@@ -12,20 +12,18 @@ import org.gjt.jclasslib.structures.Constant;
 import org.gjt.jclasslib.structures.InvalidByteCodeException;
 import org.gjt.jclasslib.structures.constants.ConstantUtf8Info;
 
-public class Client
-{
+public class Client {
     @SuppressWarnings("deprecation")
-    public static void main(String[] args){
-        modifyClassString("C:\\Users\\Administrator\\Desktop\\SaverUtil.class",893,"var Utility=Packages.com.artery.form.serverscript.Utility;\n");
+    public static void main(String[] args) {
+        modifyClassString("C:\\Users\\Administrator\\Desktop\\SaverUtil.class", 893, "var Utility=Packages.com.artery.form.serverscript.Utility;\n");
     }
 
     /**
-     *
      * @param filePath 修改class路径
-     * @param post      修改的位置
-     * @param val     新值
+     * @param post     修改的位置
+     * @param val      新值
      */
-    private static void modifyClassString(String filePath,int post,String val) {
+    private static void modifyClassString(String filePath, int post, String val) {
 //        String filePath = "C:\\Users\\Administrator\\Desktop\\SaverUtil.class";
         FileInputStream fis = null;
         try {
@@ -58,10 +56,10 @@ public class Client
 //                }
 //                System.out.print(" = ");
 //                System.out.println(infos[i].getConstantType());
-                if(i == post){
-                    ConstantUtf8Info uInfo = (ConstantUtf8Info)infos[i];
+                if (i == post) {
+                    ConstantUtf8Info uInfo = (ConstantUtf8Info) infos[i];
                     uInfo.setString(val);
-                    infos[i]=uInfo;
+                    infos[i] = uInfo;
                 }
             }
         }
